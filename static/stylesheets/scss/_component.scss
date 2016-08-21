@@ -69,6 +69,24 @@ body {
     .game_rps-h-scoreboard,
     .game_rps-b-scoreboard {
       text-align: center;
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+    }
+
+    .game_rps-h-sb-win,
+    .game_rps-h-sb-lose,
+    .game_rps-h-sb-draw,
+    .game_rps-b-sb-win,
+    .game_rps-b-sb-lose,
+    .game_rps-b-sb-draw {
+      text-align: center;
+      width: 10%;
     }
 
     .game_rps-human,

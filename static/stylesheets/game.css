@@ -46,6 +46,22 @@ body {
     .game .game_rps-hvb .game_rps-h-scoreboard,
     .game .game_rps-hvb .game_rps-b-scoreboard {
       text-align: center; }
+      .game .game_rps-hvb .game_rps-h-scoreboard input[type=number]::-webkit-inner-spin-button,
+      .game .game_rps-hvb .game_rps-h-scoreboard input[type=number]::-webkit-outer-spin-button,
+      .game .game_rps-hvb .game_rps-b-scoreboard input[type=number]::-webkit-inner-spin-button,
+      .game .game_rps-hvb .game_rps-b-scoreboard input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; }
+    .game .game_rps-hvb .game_rps-h-sb-win,
+    .game .game_rps-hvb .game_rps-h-sb-lose,
+    .game .game_rps-hvb .game_rps-h-sb-draw,
+    .game .game_rps-hvb .game_rps-b-sb-win,
+    .game .game_rps-hvb .game_rps-b-sb-lose,
+    .game .game_rps-hvb .game_rps-b-sb-draw {
+      text-align: center;
+      width: 10%; }
     .game .game_rps-hvb .game_rps-human,
     .game .game_rps-hvb .game_rps-bot {
       border: 1px solid lightblue;
