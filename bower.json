@@ -1,0 +1,21 @@
+{
+  "name": "Game",
+  "version": "0.0.1",
+  "authors": [
+    "Poornakumar Rasiraju"
+  ],
+  "description": "Rock Paper Scissor",
+  "main": "stylesheets/app.css",
+  "license": "MIT",
+  "interactive": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.1"
+  }
+}

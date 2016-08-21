@@ -1,0 +1,105 @@
+body {
+  background-color: white;
+  width: 100%;
+}
+
+.game {
+  margin: 0 auto;
+  width: 50%;
+
+  .game_title {
+    text-align: center;
+  }
+
+  .game_rps-buttons {
+    margin-top: 18px;
+    text-align: center;
+
+      .game_rps-start {
+        margin-right: 10px;
+      }
+  }
+
+  .game_rps-timer {
+    margin-top: 25px;
+
+    .game_rps-timer-label {
+      display: block;
+      text-align: center;
+    }
+
+    .game_rps-timer-block {
+      background-color: grey;
+      border-radius: 3px;
+      color: $color-white;
+      height: 40px;
+      margin: 0 auto;
+      width: 24%;
+    }
+
+    .game_rps-timer-min,
+    .game_rps-timer-sec {
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .game_rps-timer-min {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+
+    .game_rps-timer-sec {
+      margin-left: 10px;
+      margin-right: 20px;
+    }
+  }
+
+  .game_rps-hvb {
+    display: inline-block;
+    width: 100%;
+
+    .game_rps-human,
+    .game_rps-bot {
+      border: 1px solid $scolor-light-blue;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .game_rps-human {
+      display: inline-block;
+      margin-top: 33px;
+      height: 200px;
+      width: 49%;
+    }
+
+    .game_rps-bot {
+      display: inline-block;
+      height: 200px;
+      width: 49%;
+    }
+
+    .game_rps-human-title,
+    .game_rps-bot-title{
+      text-align: center;
+    }
+
+    .game_rps-human-buttons {
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: $screen-inital) and (max-width: $screen-sm) {
+
+  .game {
+    width: 100%;
+  }
+
+  .game_rps-timer-block {
+    width: 50%;
+  }
+}
+
+@media (min-width: $screen-sm) {
+
+}
