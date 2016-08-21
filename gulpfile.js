@@ -18,16 +18,15 @@ gulp.task('sass', function() {
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
     return gulp.src('static/js/*.js')
-        .pipe(concat('all.js'))
         .pipe(gulp.dest('static/js'))
-        .pipe(rename('all.min.js'))
+        .pipe(rename('rock_paper_scissor.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('static/js'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('static/js/*.js', ['lint', 'scripts']);
+    gulp.watch('static/js/*.js', ['scripts']);
     gulp.watch('static/stylesheets/scss/*.scss', ['sass']);
 });
 
