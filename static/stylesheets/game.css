@@ -6,6 +6,7 @@ body {
   margin: 0 auto;
   width: 50%; }
   .game .game_title {
+    margin-top: 70px;
     text-align: center; }
   .game .game_rps-buttons {
     margin-top: 18px;
@@ -36,25 +37,28 @@ body {
       margin-right: 20px; }
   .game .game_rps-hvb {
     display: inline-block;
+    margin-top: 50px;
     width: 100%; }
+    .game .game_rps-hvb .game_rps_human_block,
+    .game .game_rps-hvb .game_rps_bot_block {
+      float: left;
+      width: 49%; }
+    .game .game_rps-hvb .game_rps-h-scoreboard,
+    .game .game_rps-hvb .game_rps-b-scoreboard {
+      text-align: center; }
     .game .game_rps-hvb .game_rps-human,
     .game .game_rps-hvb .game_rps-bot {
       border: 1px solid lightblue;
       border-radius: 3px;
-      overflow: hidden; }
-    .game .game_rps-hvb .game_rps-human {
-      display: inline-block;
       margin-top: 33px;
       height: 200px;
-      width: 49%; }
-    .game .game_rps-hvb .game_rps-bot {
-      display: inline-block;
-      height: 200px;
-      width: 49%; }
+      width: 100%; }
     .game .game_rps-hvb .game_rps-human-title,
     .game .game_rps-hvb .game_rps-bot-title {
-      text-align: center; }
-    .game .game_rps-hvb .game_rps-human-buttons {
+      text-align: center;
+      text-transform: uppercase; }
+    .game .game_rps-hvb .game_rps-human-buttons,
+    .game .game_rps-hvb .game_rps-bot-buttons {
       text-align: center; }
 
 @media (min-width: 0px) and (max-width: 768px) {
