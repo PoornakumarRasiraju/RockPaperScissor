@@ -4,118 +4,14 @@ body {
 }
 
 .game {
-  margin: 0 auto;
-  width: 50%;
-
-  .game_title {
-    margin-top: 70px;
-    text-align: center;
-  }
-
-  .game_rps-sec-label {
-    margin-left: 2%;
-  }
-
-  .game_rps-min-input,
-  .game_rps-sec-input {
-    width: 12%;
-  }
-
-  .game_rps-buttons {
-    display: inline-block;
-    margin-left: 5%;
-    margin-top: 18px;
-    text-align: center;
-
-      .game_rps-start {
-        margin-right: 10px;
-      }
-  }
-
-  .game_rps-timer {
-    margin-top: 25px;
-
-    .game_rps-timer-label {
-      display: block;
-      text-align: center;
-    }
-
-    .game_rps-timer-block {
-      background-color: grey;
-      border-radius: 3px;
-      color: $color-white;
-      height: 40px;
-      margin: 0 auto;
-      width: 24%;
-    }
-
-    .game_rps-timer-min,
-    .game_rps-timer-sec {
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .game_rps-timer-min {
-      margin-left: 15px;
-      margin-right: 15px;
-    }
-
-    .game_rps-timer-sec {
-      margin-left: 10px;
-      margin-right: 20px;
-    }
-  }
-
-  .game_scoreboard {
-    margin: auto;
-    overflow: hidden;
-    width: 50%;
-
-    .counts {
-      float: left;
-      width: 30%;
-    }
-  }
-
-  .game_scoreboard-title {
-    margin-top: 40px;
-    text-align: center;
-  }
-
-  .game_rps-hvb {
-    display: inline-block;
-    margin-top: 30px;
-    width: 100%;
-
-    .game_rps_human_block,
-    .game_rps_bot_block {
-      float: left;
-      width: 47%;
-    }
-
-    .game_rps_human_block {
-      margin-right: 13px;
-    }
-
-    .game_rps-human,
-    .game_rps-bot {
-      border: 1px solid $scolor-light-blue;
-      border-radius: 3px;
-      height: 200px;
-      width: 100%;
-    }
-
-    .game_rps-human-title,
-    .game_rps-bot-title{
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .game_rps-human-buttons,
-    .game_rps-bot-buttons {
-      text-align: center;
-    }
-  }
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  -webkit-flex-direction: column; /* Safari */
+  flex-direction:         column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 @media (min-width: $screen-inital) and (max-width: $screen-sm) {
