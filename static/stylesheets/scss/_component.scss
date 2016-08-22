@@ -12,7 +12,18 @@ body {
     text-align: center;
   }
 
+  .game_rps-sec-label {
+    margin-left: 2%;
+  }
+
+  .game_rps-min-input,
+  .game_rps-sec-input {
+    width: 12%;
+  }
+
   .game_rps-buttons {
+    display: inline-block;
+    margin-left: 5%;
     margin-top: 18px;
     text-align: center;
 
@@ -55,45 +66,41 @@ body {
     }
   }
 
+  .game_scoreboard {
+    margin: auto;
+    overflow: hidden;
+    width: 50%;
+
+    .counts {
+      float: left;
+      width: 30%;
+    }
+  }
+
+  .game_scoreboard-title {
+    margin-top: 40px;
+    text-align: center;
+  }
+
   .game_rps-hvb {
     display: inline-block;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%;
 
     .game_rps_human_block,
     .game_rps_bot_block {
       float: left;
-      width: 49%;
+      width: 47%;
     }
 
-    .game_rps-h-scoreboard,
-    .game_rps-b-scoreboard {
-      text-align: center;
-
-      input[type=number]::-webkit-inner-spin-button,
-      input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        margin: 0;
-      }
-    }
-
-    .game_rps-h-sb-win,
-    .game_rps-h-sb-lose,
-    .game_rps-h-sb-draw,
-    .game_rps-b-sb-win,
-    .game_rps-b-sb-lose,
-    .game_rps-b-sb-draw {
-      text-align: center;
-      width: 10%;
+    .game_rps_human_block {
+      margin-right: 13px;
     }
 
     .game_rps-human,
     .game_rps-bot {
       border: 1px solid $scolor-light-blue;
       border-radius: 3px;
-      margin-top: 33px;
       height: 200px;
       width: 100%;
     }

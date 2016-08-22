@@ -31,39 +31,40 @@
       <div class="game_rps-timer">
         <label class="game_rps-timer-label">TIMER</label>
         <div class="game_rps-timer-block">
-          <span class="game_rps-timer-min">237</span>
-          <span class="game_rps-timer-sec">123</span>
+          <span class="game_rps-timer-min">00</span>
+          <span>:</span>
+          <span class="game_rps-timer-sec">00</span>
         </div>
       </div>
+
+
+      <p class="game_scoreboard-title">SCOREBOARD</p>
+      <div class="game_scoreboard">
+          <div class="counts">
+            <span>Wins: </span><span class="sb-win">0</span>
+          </div>
+          <div class="counts">
+            <span>Draws: </span><span class="sb-draw">0</span>
+          </div>
+          <div class="counts">
+            <span>Looses: </span><span class="sb-loose">0</span>
+          </div>
+      </div>
+
       <div class="game_rps-hvb">
         <div class="game_rps_human_block">
-          <div class="game_rps-h-scoreboard">
-            <label class="game_rps-h-sb-label">SCORE BOARD</label>
-            <div class="game_rps-h-sb-block">
-              <input class="game_rps-h-sb-win" type="number" value="0" disabled>
-              <input class="game_rps-h-sb-lose" type="number" value="0" disabled>
-              <input class="game_rps-h-sb-draw" type="number" value="0" disabled>
-            </div>
-          </div>
           <div class="game_rps-human">
             <p class="game_rps-human-title">Human</p>
             <div class="game_rps-human-buttons">
-              <button class="game_rps-h-rock" type="button">Rock</button>
-              <button class="game_rps-h-paper" type="button">Paper</button>
-              <button class="game_rps-h-scissor" type="button">Scissors</button>
+              <button class="game_rps-h-rock btn-select" type="button">Rock</button>
+              <button class="game_rps-h-paper btn-select" type="button">Paper</button>
+              <button class="game_rps-h-scissor btn-select" type="button">Scissors</button>
             </div>
+            <span class="human-selected">Selected</span>
           </div>
         </div>
 
         <div class="game_rps_bot_block">
-          <div class="game_rps-b-scoreboard">
-            <label class="game_rps-b-sb-label">SCORE BOARD</label>
-            <div class="game_rps-b-sb-block">
-              <input class="game_rps-b-sb-win" type="number" value="0" disabled>
-              <input class="game_rps-b-sb-lose" type="number" value="0" disabled>
-              <input class="game_rps-b-sb-draw" type="number" value="0" disabled>
-            </div>
-          </div>
           <div class="game_rps-bot">
             <p class="game_rps-bot-title">Bot</p>
             <div class="game_rps-bot-buttons">
@@ -71,14 +72,19 @@
               <button class="game_rps-b-paper" type="button" disabled>Paper</button>
               <button class="game_rps-b-scissor" type="button" disabled>Scissors</button>
             </div>
+            <span class="bot-select"></span>
           </div>
         </div>
-
       </div>
+
+      <div class="game-result hide">
+      </div>
+
     </div>
 
   </div>
 
-  <script src="RockPaperScissor/static/js/rock_paper_Scissor.js"></script>
+  <script src="RockPaperScissor/static/js/rock_module.js"></script>
+  <script src="RockPaperScissor/static/js/load_module.js"></script>
 </body>
 </html>

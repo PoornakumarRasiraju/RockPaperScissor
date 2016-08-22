@@ -8,7 +8,14 @@ body {
   .game .game_title {
     margin-top: 70px;
     text-align: center; }
+  .game .game_rps-sec-label {
+    margin-left: 2%; }
+  .game .game_rps-min-input,
+  .game .game_rps-sec-input {
+    width: 12%; }
   .game .game_rps-buttons {
+    display: inline-block;
+    margin-left: 5%;
     margin-top: 18px;
     text-align: center; }
     .game .game_rps-buttons .game_rps-start {
@@ -35,38 +42,30 @@ body {
     .game .game_rps-timer .game_rps-timer-sec {
       margin-left: 10px;
       margin-right: 20px; }
+  .game .game_scoreboard {
+    margin: auto;
+    overflow: hidden;
+    width: 50%; }
+    .game .game_scoreboard .counts {
+      float: left;
+      width: 30%; }
+  .game .game_scoreboard-title {
+    margin-top: 40px;
+    text-align: center; }
   .game .game_rps-hvb {
     display: inline-block;
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%; }
     .game .game_rps-hvb .game_rps_human_block,
     .game .game_rps-hvb .game_rps_bot_block {
       float: left;
-      width: 49%; }
-    .game .game_rps-hvb .game_rps-h-scoreboard,
-    .game .game_rps-hvb .game_rps-b-scoreboard {
-      text-align: center; }
-      .game .game_rps-hvb .game_rps-h-scoreboard input[type=number]::-webkit-inner-spin-button,
-      .game .game_rps-hvb .game_rps-h-scoreboard input[type=number]::-webkit-outer-spin-button,
-      .game .game_rps-hvb .game_rps-b-scoreboard input[type=number]::-webkit-inner-spin-button,
-      .game .game_rps-hvb .game_rps-b-scoreboard input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        margin: 0; }
-    .game .game_rps-hvb .game_rps-h-sb-win,
-    .game .game_rps-hvb .game_rps-h-sb-lose,
-    .game .game_rps-hvb .game_rps-h-sb-draw,
-    .game .game_rps-hvb .game_rps-b-sb-win,
-    .game .game_rps-hvb .game_rps-b-sb-lose,
-    .game .game_rps-hvb .game_rps-b-sb-draw {
-      text-align: center;
-      width: 10%; }
+      width: 47%; }
+    .game .game_rps-hvb .game_rps_human_block {
+      margin-right: 13px; }
     .game .game_rps-hvb .game_rps-human,
     .game .game_rps-hvb .game_rps-bot {
       border: 1px solid lightblue;
       border-radius: 3px;
-      margin-top: 33px;
       height: 200px;
       width: 100%; }
     .game .game_rps-hvb .game_rps-human-title,
