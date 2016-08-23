@@ -23,32 +23,22 @@ body {
 
   .game_rps-start,
   .game_rps-restart {
-    background-color: #008CBA;
-    border: none;
-    border-radius: 2px;
-    color: white;
-    padding: 5px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 11px;
+    @extend .primary-button;
   }
 
   button[type=button] {
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    margin-bottom: 10px;
-    padding: 10px 13px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    @extend .game-button;
 
     img {
       padding-right: 3px;
     }
+  }
+
+  input[type="number"] {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+    padding: 10px;
+    transition: box-shadow 0.3s, border 0.3s;
   }
 
   button[type=button]:disabled {
@@ -173,7 +163,6 @@ body {
 @media (min-width: $screen-inital) and (max-width: $screen-xs) {
 
   .game {
-    background-color: orange;
     width: 100%;
 
     .game_rps-hvb {
