@@ -16,9 +16,9 @@ var loadModule = (function (module) {
         drawMessage: '<strong>Match is drawn</strong>'
     };
 
-    $('#' + module.defaults.inputMinuteId).on('keypress', module.numericKeyPressEvent);
+    $('#' + module.defaults.inputMinuteClass).on('keypress', module.numericKeyPressEvent);
 
-    $('#' + module.defaults.inputSecondId).on('keypress', module.numericKeyPressEvent);
+    $('#' + module.defaults.inputSecondClass).on('keypress', module.numericKeyPressEvent);
 
     $('.' + defaults.buttonStart).on('click', function(){
         $('.' + defaults.humanSelected).text(' ');

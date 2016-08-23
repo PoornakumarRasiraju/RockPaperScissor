@@ -13,6 +13,40 @@ body {
   .game .game_rps-min-input,
   .game .game_rps-sec-input {
     width: 12%; }
+  .game .game_rps-start,
+  .game .game_rps-restart {
+    background-color: #008CBA;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px; }
+  .game button[type=button] {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 10px;
+    padding: 10px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; }
+    .game button[type=button] img {
+      padding-right: 3px; }
+  .game button[type=button]:disabled {
+    opacity: 0.7; }
+  .game .human-select,
+  .game .bot-select {
+    display: block;
+    margin-top: 29px;
+    text-align: center; }
+  .game .game-result {
+    margin-top: 20px;
+    text-align: center; }
   .game .game_rps-buttons {
     display: inline-block;
     margin-left: 5%;
@@ -78,7 +112,6 @@ body {
 
 @media (max-width: 1000px) {
   .game {
-    background-color: green;
     width: 90%; } }
 
 @media (min-width: 0px) and (max-width: 480px) {
@@ -97,15 +130,15 @@ body {
       margin-bottom: 20px; }
     .game .game-result {
       margin-bottom: 40px; }
-  .game_rps-timer-block {
-    width: 50%; } }
+    .game .game_rps-timer-block {
+      width: 50%; }
+    .game .game_rps-buttons {
+      margin-left: 115px; } }
 
 @media (min-width: 480px) and (max-width: 768px) {
-  background-color: yellow;
   margin-left: 0px; }
 
 @media (min-width: 768px) and (max-width: 992px) {
-  background-color: red;
   .game {
     width: 100%; }
     .game .game_rps_human_block {
@@ -116,15 +149,11 @@ body {
       margin-right: 13%; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  .game {
-    background-color: magenta; }
-    .game .game_rps-input {
-      margin-left: 16%;
-      margin-right: 0%; } }
+  .game .game_rps-input {
+    margin-left: 16%;
+    margin-right: 0%; } }
 
 @media (min-width: 1200px) {
-  .game {
-    background-color: blue; }
-    .game .game_rps-input {
-      margin-left: 17%;
-      margin-right: 0%; } }
+  .game .game_rps-input {
+    margin-left: 17%;
+    margin-right: 0%; } }
