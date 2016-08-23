@@ -57,7 +57,7 @@ body {
   margin: 0 auto;
   width: 50%; }
   .game .game_title {
-    margin-top: 70px;
+    margin-top: 55px;
     text-align: center; }
   .game .game_rps-sec-label {
     margin-left: 2%; }
@@ -72,6 +72,25 @@ body {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 14px;
     text-align: center; }
+  .game .game_scoreboard {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center; }
+  .game .counts {
+    border: 3px solid black;
+    display: inline-block;
+    margin-right: -4px; }
+    .game .counts h4 {
+      background-color: black;
+      color: white;
+      border-bottom: 2px solid black;
+      margin: 0px;
+      padding: 6px;
+      font-weight: bold; }
+  .game .score-box {
+    color: #2CB3C9;
+    margin: 0px;
+    padding: 13px; }
   .game .warningHide,
   .game .timeWarningHide {
     display: none; }
@@ -123,15 +142,9 @@ body {
     .game .game_rps-timer .game_rps-timer-sec {
       margin-left: 10px;
       margin-right: 20px; }
-  .game .game_scoreboard {
-    margin: auto;
-    overflow: hidden;
-    width: 50%; }
-    .game .game_scoreboard .counts {
-      float: left;
-      width: 30%; }
   .game .game_scoreboard-title {
-    margin-top: 40px;
+    margin-bottom: 0px;
+    margin-top: 30px;
     text-align: center; }
   .game .game_rps-hvb {
     display: inline-block;
