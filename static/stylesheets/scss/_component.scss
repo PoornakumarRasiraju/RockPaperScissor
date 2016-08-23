@@ -46,7 +46,7 @@ body {
       color: $color-white;
       height: 40px;
       margin: 0 auto;
-      width: 24%;
+      width: 107px;
     }
 
     .game_rps-timer-min,
@@ -118,10 +118,40 @@ body {
   }
 }
 
-@media (min-width: $screen-inital) and (max-width: $screen-sm) {
+@media (max-width: 1000px) {
+  .game {
+    background-color: green;
+    width: 90%;
+  }
+}
+
+@media (min-width: $screen-inital) and (max-width: $screen-xs) {
 
   .game {
+    background-color: orange;
     width: 100%;
+
+    .game_rps-hvb {
+      width: 100%;
+
+      .game_rps_human_block,
+      .game_rps_bot_block {
+        margin-left: 13px;
+        width: 93%;
+      }
+    }
+
+    .game_scoreboard {
+      width: 80%;
+    }
+
+    .game_rps_human_block {
+      margin-bottom: 20px;
+    }
+
+    .game-result {
+      margin-bottom: 40px;
+    }
   }
 
   .game_rps-timer-block {
@@ -129,6 +159,44 @@ body {
   }
 }
 
-@media (min-width: $screen-sm) {
+@media (min-width: $screen-xs) and (max-width: $screen-sm) {
+  background-color: yellow;
+  margin-left: 0px;
+}
 
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+  background-color: red;
+  .game {
+    width: 100%;
+
+    .game_rps_human_block {
+      margin-left: 12px;
+      margin-right: 8px;
+    }
+
+    .game_rps-input {
+      margin-left: 26%;
+      margin-right: 13%;
+    }
+  }
+}
+
+@media (min-width: $screen-md) and (max-width: $screen-lg) {
+  .game {
+    background-color: magenta;
+    .game_rps-input {
+      margin-left: 16%;
+      margin-right: 0%;
+    }
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .game {
+    background-color: blue;
+    .game_rps-input {
+      margin-left: 17%;
+      margin-right: 0%;
+    }
+  }
 }

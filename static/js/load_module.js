@@ -6,6 +6,7 @@ var loadModule = (function (module) {
         result: 'game-result',
         buttonSelect: 'btn-select',
         botSelected: 'bot-select',
+        humanSelected: 'human-select',
         winCount: 'sb-win',
         looseCount: 'sb-loose',
         drawCount: 'sb-draw',
@@ -13,17 +14,29 @@ var loadModule = (function (module) {
         winMessage: '<strong>Congtrats you won</strong>',
         looseMessage: '<strong>Oops</strong> you losed try again!',
         drawMessage: '<strong>Match is drawn</strong>'
-    }
+    };
 
     $('#' + module.defaults.inputMinuteId).on('keypress', module.numericKeyPressEvent);
 
     $('#' + module.defaults.inputSecondId).on('keypress', module.numericKeyPressEvent);
 
     $('.' + defaults.buttonStart).on('click', function(){
+        $('.' + defaults.humanSelected).text(' ');
+        $('.' + defaults.botSelected).text('');
+        $('.btn-select').prop( "disabled", false );
+        $('.game-result').hide();
+        module.resetInterval();
+        $('.' + defaults.winCount).text(0);
+        $('.' + defaults.looseCount).text(0);
+        $('.' + defaults.drawCount).text(0);
         module.start(timerChange);
     });
 
     $('.' + defaults.buttonRestart).on('click', function () {
+        $('.' + defaults.humanSelected).text(' ');
+        $('.' + defaults.botSelected).text('');
+        $('.btn-select').prop( "disabled", false );
+        $('.game-result').hide();
         module.resetInterval();
         $('.' + defaults.winCount).text(0);
         $('.' + defaults.looseCount).text(0);
@@ -33,8 +46,9 @@ var loadModule = (function (module) {
 
     $('.' + defaults.buttonSelect).on('click', function () {
         var userSelected = $(this).text().toLowerCase();
+        $('.' + defaults.humanSelected).text('you selected '+userSelected);
         var botSelected = module.botPickchoice();
-        $('.' + defaults.botSelected).text(botSelected);
+        $('.' + defaults.botSelected).text('BOT selected '+botSelected);
         var result = module.compare(userSelected, botSelected);
 
         if (result === "tie") {
@@ -89,6 +103,8 @@ var loadModule = (function (module) {
             alert(defaults.warningMessage);
         }
         if(timer < 0){
+            $('.game-result').show();
+            $('.btn-select').prop( "disabled", true );
             showWin();
         }
     }
