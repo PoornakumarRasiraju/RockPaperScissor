@@ -51,7 +51,7 @@ var loadModule = (function ($, module) {
                 $humanSelect.text(' ');
                 $botSelect.text('');
                 $('.btn-select').prop( "disabled", false );
-                $('.game-result').hide();
+                $result.hide();
                 module.resetInterval();
                 $winCount.text(0);
                 $looseCount.text(0);
@@ -130,9 +130,10 @@ var loadModule = (function ($, module) {
     })
 
     var showWin = function () {
-        var winCount = parseInt($('.' + defaults.winCount).text());
-        var looseCount = parseInt($('.' + defaults.looseCount).text());
-        var drawCount = parseInt($('.' + defaults.drawCount).text());
+        var winCount = parseInt($('.' + defaults.winCount).text()),
+            looseCount = parseInt($('.' + defaults.looseCount).text()),
+            drawCount = parseInt($('.' + defaults.drawCount).text()),
+            count = winCount+looseCount+drawCount;
 
         if (winCount > looseCount) {
             $result.html(defaults.winMessage).removeClass('hide');
@@ -142,6 +143,8 @@ var loadModule = (function ($, module) {
         }
         else if (winCount == looseCount && drawCount > 0) {
             $result.html(defaults.drawMessage).removeClass('hide');
+        } else if(count === 0) {
+            $result.html("Haven't played the game").removeClass('hide');
         }
     }
 
@@ -157,9 +160,9 @@ var loadModule = (function ($, module) {
         }
 
         if(timer === 0){
-            $result.show();
             $('.btn-select').prop( "disabled", true );
             showWin();
+            $result.show();
         }
     }
 })(jQuery, rockModule);

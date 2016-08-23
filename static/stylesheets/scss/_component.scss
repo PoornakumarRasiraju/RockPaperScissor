@@ -18,12 +18,16 @@ body {
 
   .game_rps-min-input,
   .game_rps-sec-input {
+    font-size: 13px;
     text-align: center;
     width: 12%;
   }
 
   .game_input-warning,
   .game_time-warning {
+    color: red;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
     text-align: center;
   }
 
