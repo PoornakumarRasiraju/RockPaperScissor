@@ -1,4 +1,4 @@
-var rockModule = (function () {
+var rockModule = (function ($) {
 
     var timeInterval;
     var choices = ["rock", "paper", "scissors"];
@@ -6,8 +6,8 @@ var rockModule = (function () {
     var defaults = {
         displayMinute: '.game_rps-timer-min',
         displaySecond: '.game_rps-timer-sec',
-        inputMinuteClass: 'game_rps-min-input',
-        inputSecondClass: 'game_rps-sec-input'
+        inputMinute: '.game_rps-min-input',
+        inputSecond: '.game_rps-sec-input'
     };
     choices.forEach(function (choice, i) {
         map[choice] = {};
@@ -77,8 +77,8 @@ var rockModule = (function () {
         resetInterval();
         var fragmentTime;
 
-        var minutes = $('.' + defaults.inputMinuteClass).val();
-        var seconds = $('.' + defaults.inputSecondClass).val();
+        var minutes = $(defaults.inputMinute).val();
+        var seconds = $(defaults.inputSecond).val();
 
         minutes = parseInt(minutes);
         seconds = parseInt(seconds);
@@ -113,4 +113,4 @@ var rockModule = (function () {
         numericKeyPressEvent: numericKeyPressEvent
     };
 
-})();
+})(jQuery);

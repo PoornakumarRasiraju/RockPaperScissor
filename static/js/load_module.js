@@ -1,6 +1,7 @@
 
-var loadModule = (function (module) {
+var loadModule = (function ($, module) {
     var defaults = {
+        game: 'game',
         buttonRestart: 'game_rps-restart',
         buttonStart: 'game_rps-start',
         result: 'game-result',
@@ -10,45 +11,92 @@ var loadModule = (function (module) {
         winCount: 'sb-win',
         looseCount: 'sb-loose',
         drawCount: 'sb-draw',
-        warningMessage: 'Just warning',
-        winMessage: '<strong>Congtrats you won</strong>',
+        inputWarning: 'game_input-warning',
+        inputTimeWarning: 'game_time-warning',
+        warningMessage: 'Warning: Still 10 seconds left',
+        winMessage: '<strong>Congrats you won</strong>',
         looseMessage: '<strong>Oops</strong> you losed try again!',
         drawMessage: '<strong>Match is drawn</strong>'
     };
 
-    $('#' + module.defaults.inputMinuteClass).on('keypress', module.numericKeyPressEvent);
+    var $game = $('.' + defaults.game),
+        $inputMinute = $(module.defaults.inputMinute, $game),
+        $inputSecond = $(module.defaults.inputSecond, $game),
+        $displaySecond = $(module.defaults.displaySecond, $game),
+        $inputWarning = $('.' + defaults.inputWarning, $game),
+        $inputTimeWarning = $('.' + defaults.inputTimeWarning, $game),
+        $buttonStart = $('.' + defaults.buttonStart, $game),
+        $buttonRestart = $('.' + defaults.buttonRestart, $game),
+        $buttonSelect = $('.' + defaults.buttonSelect, $game),
+        $winCount = $('.' + defaults.winCount, $game),
+        $drawCount = $('.' + defaults.drawCount, $game),
+        $looseCount = $('.' + defaults.looseCount, $game),
+        $humanSelect = $('.' + defaults.humanSelected, $game),
+        $botSelect = $('.' + defaults.botSelected, $game),
+        $result =  $('.' + defaults.result, $game);
 
-    $('#' + module.defaults.inputSecondClass).on('keypress', module.numericKeyPressEvent);
+    $inputMinute.on('keypress', module.numericKeyPressEvent);
 
-    $('.' + defaults.buttonStart).on('click', function(){
-        $('.' + defaults.humanSelected).text(' ');
-        $('.' + defaults.botSelected).text('');
-        $('.btn-select').prop( "disabled", false );
-        $('.game-result').hide();
-        module.resetInterval();
-        $('.' + defaults.winCount).text(0);
-        $('.' + defaults.looseCount).text(0);
-        $('.' + defaults.drawCount).text(0);
-        module.start(timerChange);
+    $inputSecond.on('keypress', module.numericKeyPressEvent);
+
+    $buttonStart.on('click', function(){
+        var min =  $inputMinute.val(),
+            sec = $inputSecond.val(),
+            time = min+sec;
+
+        if(time > 0) {
+            if(min.length < 3 && sec.length < 3) {
+                $inputTimeWarning.addClass('warningHide');
+                $inputWarning.addClass('warningHide');
+                $humanSelect.text(' ');
+                $botSelect.text('');
+                $('.btn-select').prop( "disabled", false );
+                $('.game-result').hide();
+                module.resetInterval();
+                $winCount.text(0);
+                $looseCount.text(0);
+                $drawCount.text(0);
+                module.start(timerChange);
+            } else {
+                $inputTimeWarning.removeClass('warningHide');
+                $inputWarning.addClass('warningHide');
+                return false;
+            }
+
+        } else {
+            $inputTimeWarning.addClass('warningHide');
+            $inputWarning.removeClass('warningHide');
+            return false;
+        }
     });
 
-    $('.' + defaults.buttonRestart).on('click', function () {
-        $('.' + defaults.humanSelected).text(' ');
-        $('.' + defaults.botSelected).text('');
-        $('.btn-select').prop( "disabled", false );
-        $('.game-result').hide();
-        module.resetInterval();
-        $('.' + defaults.winCount).text(0);
-        $('.' + defaults.looseCount).text(0);
-        $('.' + defaults.drawCount).text(0);
-        module.start(timerChange);
+    $buttonRestart.on('click', function () {
+        var min =  $inputMinute.val(),
+            sec = $inputSecond.val(),
+            time = min+sec;
+
+        if(time > 0) {
+            $inputWarning.addClass('warningHide');
+            $humanSelect.text(' ');
+            $botSelect.text('');
+            $('.btn-select').prop( "disabled", false );
+            $result.hide();
+            module.resetInterval();
+            $winCount.text(0);
+            $looseCount.text(0);
+            $drawCount.text(0);
+            module.start(timerChange);
+        } else {
+            $inputWarning.removeClass('warningHide');
+            return false;
+        }
     });
 
-    $('.' + defaults.buttonSelect).on('click', function () {
+    $buttonSelect.on('click', function () {
         var userSelected = $(this).text().toLowerCase();
-        $('.' + defaults.humanSelected).text('you selected '+userSelected);
+        $humanSelect.text('you selected '+userSelected);
         var botSelected = module.botPickchoice();
-        $('.' + defaults.botSelected).text('BOT selected '+botSelected);
+        $botSelect.text('BOT selected '+botSelected);
         var result = module.compare(userSelected, botSelected);
 
         if (result === "tie") {
@@ -87,25 +135,31 @@ var loadModule = (function (module) {
         var drawCount = parseInt($('.' + defaults.drawCount).text());
 
         if (winCount > looseCount) {
-            $('.' + defaults.result).html(defaults.winMessage).removeClass('hide');
+            $result.html(defaults.winMessage).removeClass('hide');
         }
         else if (looseCount > winCount) {
-            $('.' + defaults.result).html(defaults.looseMessage).removeClass('hide');
+            $result.html(defaults.looseMessage).removeClass('hide');
         }
         else if (winCount == looseCount && drawCount > 0) {
-            $('.' + defaults.result).html(defaults.drawMessage).removeClass('hide');
+            $result.html(defaults.drawMessage).removeClass('hide');
         }
     }
 
     function timerChange(timer, minutes, seconds) {
-        console.log("Mins: " + minutes + " Sec: " + seconds);
         if(timer === 10){
             alert(defaults.warningMessage);
         }
-        if(timer < 0){
-            $('.game-result').show();
+
+        if (timer < 11 && timer > 0) {
+            $displaySecond.addClass('timerWarning');
+        } else {
+            $displaySecond.removeClass('timerWarning');
+        }
+
+        if(timer === 0){
+            $result.show();
             $('.btn-select').prop( "disabled", true );
             showWin();
         }
     }
-})(rockModule);
+})(jQuery, rockModule);

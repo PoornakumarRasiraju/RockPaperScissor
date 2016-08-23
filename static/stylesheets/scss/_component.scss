@@ -18,7 +18,22 @@ body {
 
   .game_rps-min-input,
   .game_rps-sec-input {
+    text-align: center;
     width: 12%;
+  }
+
+  .game_input-warning,
+  .game_time-warning {
+    text-align: center;
+  }
+
+  .warningHide,
+  .timeWarningHide {
+    display: none;
+  }
+
+  .timerWarning {
+    color: orange;
   }
 
   .game_rps-start,

@@ -1,0 +1,32 @@
+@import url(//fonts.googleapis.com/css?family=Tangerine);
+@import url(//fonts.googleapis.com/css?family=Ravi+Prakash|Roboto);
+
+.game_title {
+  font-family: 'Tangerine',sans-serif;
+  font-size: 48px;
+  text-shadow: 4px 4px 4px #aaa;
+}
+
+.game_rps-min-label,
+.game_rps-sec-label {
+  font-family: 'Roboto', sans-serif;
+}
+
+.game_rps-human-title,
+.game_rps-bot-title,
+.game_rps-timer-label,
+.game_scoreboard-title,
+.counts{
+  font-family: 'Roboto', sans-serif;
+}
+
+.human-select,
+.bot-select,
+.game-result {
+  font-family: 'Ravi Prakash', sans-serif;
+  font-size: 19px;
+}
+
+.game-result {
+  font-size: 26px;
+}
