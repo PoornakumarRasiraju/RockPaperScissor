@@ -1,45 +1,46 @@
 var rpsModule = (function ($, module) {
     var defaults = {
-        game: 'game',
-        buttonRestart: 'game_rps-restart',
-        buttonStart: 'game_rps-start',
-        result: 'game-result',
-        buttonSelect: 'btn-select',
-        botSelected: 'bot-select',
-        humanSelected: 'human-select',
-        winCount: 'sb-win',
-        looseCount: 'sb-loose',
-        drawCount: 'sb-draw',
-        sbMessage: 'game_sb-message',
-        inputWarning: 'game_input-warning',
-        inputTimeWarning: 'game_time-warning',
+        game: '.game',
+        buttonRestart: '.game_rps-restart',
+        buttonStart: '.game_rps-start',
+        result: '.game-result',
+        buttonSelect: '.btn-select',
+        botSelected: '.bot-select',
+        humanSelected: '.human-select',
+        winCount: '.sb-win',
+        looseCount: '.sb-loose',
+        drawCount: '.sb-draw',
+        scoreboard: '.game_sb-message',
+        inputWarning: '.game_input-warning',
+        inputTimeWarning: '.game_time-warning',
         warningMessage: 'Warning: Still 10 seconds left',
         winMessage: '<strong>Congrats you won</strong>',
-        looseMessage: '<strong>Oops</strong> you losed try again!',
-        drawMessage: '<strong>Match is drawn</strong>'
+        looseMessage: '<strong>Oops</strong> you loss, try again!',
+        drawMessage: '<strong>Match is drawn</strong>',
+        notPlayedMessage: 'Haven\'t played the game'
     };
 
-    var $game = $('.' + defaults.game),
+    var $game = $(defaults.game),
         $inputMinute = $(module.defaults.inputMinute, $game),
         $inputSecond = $(module.defaults.inputSecond, $game),
         $displaySecond = $(module.defaults.displaySecond, $game),
-        $inputWarning = $('.' + defaults.inputWarning, $game),
-        $inputTimeWarning = $('.' + defaults.inputTimeWarning, $game),
-        $buttonStart = $('.' + defaults.buttonStart, $game),
-        $buttonRestart = $('.' + defaults.buttonRestart, $game),
-        $buttonSelect = $('.' + defaults.buttonSelect, $game),
-        $winCount = $('.' + defaults.winCount, $game),
-        $drawCount = $('.' + defaults.drawCount, $game),
-        $looseCount = $('.' + defaults.looseCount, $game),
-        $humanSelect = $('.' + defaults.humanSelected, $game),
-        $botSelect = $('.' + defaults.botSelected, $game),
-        $result =  $('.' + defaults.result, $game);
+        $inputWarning = $(defaults.inputWarning, $game),
+        $inputTimeWarning = $(defaults.inputTimeWarning, $game),
+        $buttonStart = $(defaults.buttonStart, $game),
+        $buttonRestart = $(defaults.buttonRestart, $game),
+        $buttonSelect = $(defaults.buttonSelect, $game),
+        $winCount = $(defaults.winCount, $game),
+        $drawCount = $(defaults.drawCount, $game),
+        $looseCount = $(defaults.looseCount, $game),
+        $humanSelect = $(defaults.humanSelected, $game),
+        $botSelect = $(defaults.botSelected, $game),
+        $result =  $(defaults.result, $game);
 
     $inputMinute.on('keypress', module.numericKeyPressEvent);
 
     $inputSecond.on('keypress', module.numericKeyPressEvent);
 
-    $buttonStart.on('click', function(){
+    $buttonStart.add($buttonRestart).on('click', function(){
         var min =  $inputMinute.val(),
             sec = $inputSecond.val(),
             time = min+sec;
@@ -54,9 +55,9 @@ var rpsModule = (function ($, module) {
                 $('.btn-select').prop( "disabled", false );
                 $result.hide();
                 module.resetInterval();
-                $winCount.text(0);
-                $looseCount.text(0);
-                $drawCount.text(0);
+                $winCount.text('0');
+                $looseCount.text('0');
+                $drawCount.text('0');
                 module.start(timerChange);
             } else {
                 $inputTimeWarning.removeClass('warningHide');
@@ -71,40 +72,17 @@ var rpsModule = (function ($, module) {
         }
     });
 
-    $buttonRestart.on('click', function () {
-        var min =  $inputMinute.val(),
-            sec = $inputSecond.val(),
-            time = min+sec;
-
-        if(time > 0) {
-            $inputWarning.addClass('warningHide');
-            $humanSelect.text(' ');
-            $botSelect.text('');
-            $('.game_sb-message').text(' ');
-            $('.btn-select').prop( "disabled", false );
-            $result.hide();
-            module.resetInterval();
-            $winCount.text(0);
-            $looseCount.text(0);
-            $drawCount.text(0);
-            module.start(timerChange);
-        } else {
-            $inputWarning.removeClass('warningHide');
-            return false;
-        }
-    });
-
     $buttonSelect.on('click', function () {
-        var userSelected = $(this).text().toLowerCase();
-        $humanSelect.text('you selected '+userSelected);
-        var botSelected = module.botPickchoice();
-        $botSelect.text('BOT selected '+botSelected);
-        var result = module.compare(userSelected, botSelected);
+        var userSelected = $(this).text().toLowerCase(),
+            botSelected = module.botPickchoice(),
+            result = module.compare(userSelected, botSelected),
+            sbEle = $(defaults.scoreboard);
 
-        var sbEle = $('.'+defaults.sbMessage);
+        $humanSelect.text('You selected '+userSelected);
+        $botSelect.text('Bot selected '+botSelected);
 
         if (result === "tie") {
-            var drawEle = $('.' + defaults.drawCount);
+            var drawEle = $(defaults.drawCount);
             var d = parseInt(drawEle.text());
             if (isNaN(d)) {
                 d = 0;
@@ -114,7 +92,7 @@ var rpsModule = (function ($, module) {
             sbEle.text('It is a tie');
         }
         else if (userSelected === result) {
-            var winEle = $('.' + defaults.winCount);
+            var winEle = $(defaults.winCount);
             var w = parseInt(winEle.text());
             if (isNaN(w)) {
                 w = 0;
@@ -124,7 +102,7 @@ var rpsModule = (function ($, module) {
             sbEle.text(' you Win! '+userSelected+' beats '+botSelected);
         }
         else {
-            var looseEle = $('.' + defaults.looseCount);
+            var looseEle = $(defaults.looseCount);
             var l = parseInt(looseEle.text());
             if (isNaN(l)) {
                 l = 0;
@@ -137,9 +115,9 @@ var rpsModule = (function ($, module) {
     })
 
     var showWin = function () {
-        var winCount = parseInt($('.' + defaults.winCount).text()),
-            looseCount = parseInt($('.' + defaults.looseCount).text()),
-            drawCount = parseInt($('.' + defaults.drawCount).text()),
+        var winCount = parseInt($(defaults.winCount).text()),
+            looseCount = parseInt($(defaults.looseCount).text()),
+            drawCount = parseInt($(defaults.drawCount).text()),
             count = winCount+looseCount+drawCount;
 
         if (winCount > looseCount) {
@@ -151,7 +129,7 @@ var rpsModule = (function ($, module) {
         else if (winCount === looseCount && count > 0) {
             $result.html(defaults.drawMessage).removeClass('hide');
         } else if(count === 0) {
-            $result.html("Haven't played the game").removeClass('hide');
+            $result.html(defaults.notPlayedMessage).removeClass('hide');
         }
     }
 
@@ -167,7 +145,7 @@ var rpsModule = (function ($, module) {
         }
 
         if(timer === 0){
-            $('.btn-select').prop( "disabled", true );
+            $buttonSelect.prop( "disabled", true );
             showWin();
             $result.show();
         }
