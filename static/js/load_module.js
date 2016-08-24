@@ -1,4 +1,3 @@
-
 var loadModule = (function ($, module) {
     var defaults = {
         game: 'game',
@@ -11,6 +10,7 @@ var loadModule = (function ($, module) {
         winCount: 'sb-win',
         looseCount: 'sb-loose',
         drawCount: 'sb-draw',
+        sbMessage: 'game_sb-message',
         inputWarning: 'game_input-warning',
         inputTimeWarning: 'game_time-warning',
         warningMessage: 'Warning: Still 10 seconds left',
@@ -99,6 +99,8 @@ var loadModule = (function ($, module) {
         $botSelect.text('BOT selected '+botSelected);
         var result = module.compare(userSelected, botSelected);
 
+        var sbEle = $('.'+defaults.sbMessage);
+
         if (result === "tie") {
             var drawEle = $('.' + defaults.drawCount);
             var d = parseInt(drawEle.text());
@@ -107,6 +109,7 @@ var loadModule = (function ($, module) {
             }
             d++;
             drawEle.text(d);
+            sbEle.text('It is a tie');
         }
         else if (userSelected === result) {
             var winEle = $('.' + defaults.winCount);
@@ -116,6 +119,7 @@ var loadModule = (function ($, module) {
             }
             w++;
             winEle.text(w);
+            sbEle.text(' you Win! '+userSelected+' beats '+botSelected);
         }
         else {
             var looseEle = $('.' + defaults.looseCount);
@@ -125,6 +129,7 @@ var loadModule = (function ($, module) {
             }
             l++;
             looseEle.text(l);
+            sbEle.text(' you Loose '+botSelected+' beats '+userSelected);
         }
 
     })
@@ -141,7 +146,7 @@ var loadModule = (function ($, module) {
         else if (looseCount > winCount) {
             $result.html(defaults.looseMessage).removeClass('hide');
         }
-        else if (winCount == looseCount && drawCount > 0) {
+        else if (winCount === looseCount && count > 0) {
             $result.html(defaults.drawMessage).removeClass('hide');
         } else if(count === 0) {
             $result.html("Haven't played the game").removeClass('hide');

@@ -80,7 +80,7 @@ body {
     }
   }
 
-  input[type="number"] {
+  input[type="text"] {
     border: solid 1px #707070;
     box-shadow: 0 0 5px 1px #969696;
     padding: 10px;
@@ -89,6 +89,11 @@ body {
 
   button[type=button]:disabled {
     opacity: 0.7;
+  }
+
+  .game_sb-message {
+    margin-bottom: 0px;
+    text-align: center;
   }
 
   .human-select,
@@ -234,7 +239,7 @@ body {
 }
 
 @media (min-width: $screen-xs) and (max-width: $screen-sm) {
-  margin-left: 0px;
+
 }
 
 @media (min-width: $screen-sm) and (max-width: $screen-md) {

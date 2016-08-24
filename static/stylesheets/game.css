@@ -16,6 +16,10 @@
 .counts {
   font-family: 'Roboto', sans-serif; }
 
+.game_sb-message {
+  font-family: 'Ravi Prakash';
+  font-size: 17px; }
+
 .human-select,
 .bot-select,
 .game-result {
@@ -98,13 +102,16 @@ body {
     color: orange; }
   .game button[type=button] img {
     padding-right: 3px; }
-  .game input[type="number"] {
+  .game input[type="text"] {
     border: solid 1px #707070;
     box-shadow: 0 0 5px 1px #969696;
     padding: 10px;
     transition: box-shadow 0.3s, border 0.3s; }
   .game button[type=button]:disabled {
     opacity: 0.7; }
+  .game .game_sb-message {
+    margin-bottom: 0px;
+    text-align: center; }
   .game .human-select,
   .game .bot-select {
     display: block;
@@ -193,9 +200,6 @@ body {
       width: 50%; }
     .game .game_rps-buttons {
       margin-left: 115px; } }
-
-@media (min-width: 480px) and (max-width: 768px) {
-  margin-left: 0px; }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .game {
