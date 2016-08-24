@@ -170,4 +170,4 @@ var loadModule = (function ($, module) {
             $result.show();
         }
     }
-})(jQuery, rockModule);
+})(jQuery, timerModule);

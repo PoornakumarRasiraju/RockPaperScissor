@@ -93,6 +93,7 @@ body {
 
   .game_sb-message {
     margin-bottom: 0px;
+    margin-top: 8px;
     text-align: center;
   }
 
@@ -149,7 +150,6 @@ body {
 
     .game_rps-timer-sec {
       margin-left: 10px;
-      margin-right: 20px;
     }
   }
 
@@ -195,7 +195,7 @@ body {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $screen-md) {
   .game {
     width: 90%;
   }

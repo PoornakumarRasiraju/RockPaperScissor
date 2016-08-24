@@ -1,4 +1,4 @@
-var rockModule = (function ($) {
+var timerModule = (function ($) {
 
     var timeInterval;
     var choices = ["rock", "paper", "scissors"];

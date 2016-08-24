@@ -1,8 +1,8 @@
 .primary-button {
-  background-color: #008CBA;
+  background-color: $color-blue;
   border: none;
   border-radius: 2px;
-  color: white;
+  color: $color-white;
   padding: 5px 12px;
   text-align: center;
   text-decoration: none;
@@ -11,10 +11,10 @@
 }
 
 .game-button {
-  background-color: #4CAF50;
+  background-color: $color-green;
   border: none;
   border-radius: 10px;
-  color: white;
+  color: $color-white;
   margin-bottom: 10px;
   padding: 10px 13px;
   text-align: center;

@@ -1,14 +1,12 @@
 @import url(//fonts.googleapis.com/css?family=Tangerine);
 @import url(//fonts.googleapis.com/css?family=Ravi+Prakash|Roboto|Open+Sans+Condensed);
 .game_title {
-  font-family: 'Tangerine',sans-serif;
+  font-family: 'Tangerine', sans-serif;
   font-size: 48px;
   text-shadow: 4px 4px 4px #aaa; }
 
 .game_rps-min-label,
-.game_rps-sec-label {
-  font-family: 'Roboto', sans-serif; }
-
+.game_rps-sec-label,
 .game_rps-human-title,
 .game_rps-bot-title,
 .game_rps-timer-label,
@@ -17,7 +15,7 @@
   font-family: 'Roboto', sans-serif; }
 
 .game_sb-message {
-  font-family: 'Ravi Prakash';
+  font-family: 'Ravi Prakash', sans-serif;
   font-size: 17px; }
 
 .human-select,
@@ -34,7 +32,7 @@
   background-color: #008CBA;
   border: none;
   border-radius: 2px;
-  color: white;
+  color: #fff;
   padding: 5px 12px;
   text-align: center;
   text-decoration: none;
@@ -45,7 +43,7 @@
   background-color: #4CAF50;
   border: none;
   border-radius: 10px;
-  color: white;
+  color: #fff;
   margin-bottom: 10px;
   padding: 10px 13px;
   text-align: center;
@@ -111,6 +109,7 @@ body {
     opacity: 0.7; }
   .game .game_sb-message {
     margin-bottom: 0px;
+    margin-top: 8px;
     text-align: center; }
   .game .human-select,
   .game .bot-select {
@@ -147,8 +146,7 @@ body {
       margin-left: 15px;
       margin-right: 15px; }
     .game .game_rps-timer .game_rps-timer-sec {
-      margin-left: 10px;
-      margin-right: 20px; }
+      margin-left: 10px; }
   .game .game_scoreboard-title {
     margin-bottom: 0px;
     margin-top: 30px;
@@ -177,7 +175,7 @@ body {
     .game .game_rps-hvb .game_rps-bot-buttons {
       text-align: center; }
 
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
   .game {
     width: 90%; } }
 
