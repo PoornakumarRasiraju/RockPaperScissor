@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: $color-white;
   width: 100%;
 }
 
@@ -25,9 +25,7 @@ body {
 
   .game_input-warning,
   .game_time-warning {
-    color: red;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 14px;
+    color: $color-red;
     text-align: center;
   }
 
@@ -38,14 +36,14 @@ body {
   }
 
   .counts {
-    border: 3px solid black;
+    border: 3px solid $color-black;
     display: inline-block;
     margin-right: -4px;
 
     h4 {
-      background-color: black;
+      background-color: $color-black;
       color: white;
-      border-bottom: 2px solid black;
+      border-bottom: 2px solid $color-black;
       margin: 0px;
       padding: 6px;
       font-weight: bold;
@@ -64,7 +62,7 @@ body {
   }
 
   .timerWarning {
-    color: orange;
+    color: $color-orange;
   }
 
   .game_rps-start,
@@ -81,8 +79,8 @@ body {
   }
 
   input[type="text"] {
-    border: solid 1px #707070;
-    box-shadow: 0 0 5px 1px #969696;
+    border: solid 1px $color-light-grey;
+    box-shadow: 0 0 5px 1px $color-shadow-grey;
     padding: 10px;
     transition: box-shadow 0.3s, border 0.3s;
   }
@@ -129,7 +127,7 @@ body {
     }
 
     .game_rps-timer-block {
-      background-color: grey;
+      background-color: $color-grey;
       border-radius: 3px;
       color: $color-white;
       height: 40px;

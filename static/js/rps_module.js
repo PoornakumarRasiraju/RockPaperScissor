@@ -1,4 +1,4 @@
-var loadModule = (function ($, module) {
+var rpsModule = (function ($, module) {
     var defaults = {
         game: 'game',
         buttonRestart: 'game_rps-restart',
@@ -50,6 +50,7 @@ var loadModule = (function ($, module) {
                 $inputWarning.addClass('warningHide');
                 $humanSelect.text(' ');
                 $botSelect.text('');
+                $('.game_sb-message').text(' ');
                 $('.btn-select').prop( "disabled", false );
                 $result.hide();
                 module.resetInterval();
@@ -79,6 +80,7 @@ var loadModule = (function ($, module) {
             $inputWarning.addClass('warningHide');
             $humanSelect.text(' ');
             $botSelect.text('');
+            $('.game_sb-message').text(' ');
             $('.btn-select').prop( "disabled", false );
             $result.hide();
             module.resetInterval();
