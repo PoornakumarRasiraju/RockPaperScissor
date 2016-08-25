@@ -72,7 +72,8 @@ body {
   input[type="text"] {
     border: solid 1px $color-light-grey;
     box-shadow: 0 0 5px 1px $color-shadow-grey;
-    padding: 10px;
+    margin-left: 4px;
+    padding: 4px;
     transition: box-shadow 0.3s, border 0.3s;
   }
 
@@ -95,7 +96,7 @@ body {
 
   .game_rps-buttons {
     display: inline-block;
-    margin-left: 5%;
+    margin-left: 3%;
     margin-top: 18px;
     text-align: center;
 
