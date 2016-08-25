@@ -109,7 +109,7 @@ var rpsModule = (function ($, module) {
             }
             l++;
             looseEle.text(l);
-            sbEle.text(' you Loose '+botSelected+' beats '+userSelected);
+            sbEle.text(' you Loose! '+botSelected+' beats '+userSelected);
         }
 
     })
