@@ -11,6 +11,7 @@ var rpsModule = (function ($, module) {
         looseCount: '.sb-loose',
         drawCount: '.sb-draw',
         scoreboard: '.game_sb-message',
+        trophyImg: '.trophy_image',
         inputWarning: '.game_input-warning',
         inputTimeWarning: '.game_time-warning',
         warningMessage: 'Warning: Still 10 seconds left',
@@ -32,8 +33,10 @@ var rpsModule = (function ($, module) {
         $winCount = $(defaults.winCount, $game),
         $drawCount = $(defaults.drawCount, $game),
         $looseCount = $(defaults.looseCount, $game),
+        $scoreBoard = $(defaults.scoreboard, $game),
         $humanSelect = $(defaults.humanSelected, $game),
         $botSelect = $(defaults.botSelected, $game),
+        $trophyImg = $(defaults.trophyImg, $game),
         $result =  $(defaults.result, $game);
 
     $inputMinute.on('keypress', module.numericKeyPressEvent);
@@ -43,31 +46,25 @@ var rpsModule = (function ($, module) {
     $buttonStart.add($buttonRestart).on('click', function(){
         var min =  $inputMinute.val(),
             sec = $inputSecond.val(),
-            time = min+sec;
+            time = min.length+sec.length;
 
-        if(time > 0) {
-            if(min.length < 4 && sec.length < 4) {
-                $inputTimeWarning.addClass('warningHide');
-                $inputWarning.addClass('warningHide');
-                $humanSelect.text(' ');
-                $botSelect.text('');
-                $('.game_sb-message').text(' ');
-                $('.btn-select').prop( "disabled", false );
-                $result.hide();
-                module.resetInterval();
-                $winCount.text('0');
-                $looseCount.text('0');
-                $drawCount.text('0');
-                module.start(timerChange);
-            } else {
-                $inputTimeWarning.removeClass('warningHide');
-                $inputWarning.addClass('warningHide');
-                return false;
-            }
-
-        } else {
+        if(time > 0 && min.length < 4 && sec.length < 4) {
             $inputTimeWarning.addClass('warningHide');
-            $inputWarning.removeClass('warningHide');
+            $inputWarning.addClass('warningHide');
+            $trophyImg.hide();
+            $humanSelect.text('');
+            $botSelect.text('');
+            $scoreBoard.text(' ');
+            $buttonSelect.prop("disabled", false );
+            $result.hide();
+            module.resetInterval();
+            $winCount.text('0');
+            $looseCount.text('0');
+            $drawCount.text('0');
+            module.start(timerChange);
+        } else {
+            $inputTimeWarning.removeClass('warningHide');
+            $inputWarning.addClass('warningHide');
             return false;
         }
     });
@@ -75,8 +72,7 @@ var rpsModule = (function ($, module) {
     $buttonSelect.on('click', function () {
         var userSelected = $(this).text().toLowerCase(),
             botSelected = module.botPickchoice(),
-            result = module.compare(userSelected, botSelected),
-            sbEle = $(defaults.scoreboard);
+            result = module.compare(userSelected, botSelected);
 
         $humanSelect.text('You selected '+userSelected);
         $botSelect.text('Bot selected '+botSelected);
@@ -89,7 +85,7 @@ var rpsModule = (function ($, module) {
             }
             d++;
             drawEle.text(d);
-            sbEle.text('It is a tie');
+            $scoreBoard.text('It is a tie');
         }
         else if (userSelected === result) {
             var winEle = $(defaults.winCount);
@@ -99,7 +95,7 @@ var rpsModule = (function ($, module) {
             }
             w++;
             winEle.text(w);
-            sbEle.text(' you Win! '+userSelected+' beats '+botSelected);
+            $scoreBoard.text(' you Win! '+userSelected+' beats '+botSelected);
         }
         else {
             var looseEle = $(defaults.looseCount);
@@ -109,7 +105,7 @@ var rpsModule = (function ($, module) {
             }
             l++;
             looseEle.text(l);
-            sbEle.text(' you Loose! '+botSelected+' beats '+userSelected);
+            $scoreBoard.text(' you Loose! '+botSelected+' beats '+userSelected);
         }
 
     })
@@ -121,6 +117,7 @@ var rpsModule = (function ($, module) {
             count = winCount+looseCount+drawCount;
 
         if (winCount > looseCount) {
+            $trophyImg.show();
             $result.html(defaults.winMessage).removeClass('hide');
         }
         else if (looseCount > winCount) {
@@ -145,7 +142,7 @@ var rpsModule = (function ($, module) {
         }
 
         if(timer === 0){
-            $buttonSelect.prop( "disabled", true );
+            $buttonSelect.prop("disabled", true );
             showWin();
             $result.show();
         }
