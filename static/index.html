@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/RockPaperScissor/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPS Game</title>
+
+  <link rel="stylesheet" href="static/stylesheets/game.css" />
+</head>
+
+<body>
+  <div class="game">
+    <h1 class="game_title">Rock - Paper -Scissors</h1>
+    <div class="game_rps">
+
+      <div class="game_rps-input">
+        <label class="game_rps-min-label" for="minutes">Minutes:</label>
+        <input id="minutes" class="game_rps-min-input" type="text" name="minutesField">
+        <label class="game_rps-sec-label" for="seconds">Seconds:</label>
+        <input id="seconds" class="game_rps-sec-input" type="text" name="secondsField">
+        <div class="game_rps-buttons">
+          <button class="game_rps-start" type="submit">START</button>
+          <button class="game_rps-restart" type="submit">RESTART</button>
+        </div>
+      </div>
+
+      <div class="game_input-warning warningHide">
+        <p>Please Enter the valid time.</p>
+      </div>
+
+      <div class="game_time-warning warningHide">
+        <p>Entered time exceeded the game time limit.</p>
+      </div>
+
+      <div class="game_rps-timer">
+        <label class="game_rps-timer-label">TIMER</label>
+        <div class="game_rps-timer-block">
+          <span class="game_rps-timer-min">00</span>
+          <span>:</span>
+          <span class="game_rps-timer-sec">00</span>
+        </div>
+      </div>
+
+      <p class="game_scoreboard-title">SCOREBOARD</p>
+
+      <div class="game_scoreboard">
+        <div class="counts">
+          <h4>WINS</h4>
+          <p class="sb-win score-box">0</p>
+        </div>
+        <div class="counts">
+          <h4>DRAWS</h4>
+          <p class="sb-draw score-box">0</p>
+        </div>
+        <div class="counts">
+          <h4>LOOSES</h4>
+          <p class="sb-loose score-box">0</p>
+        </div>
+      </div>
+
+      <p class="game_sb-message"></p>
+
+      <div class="game_rps-hvb">
+        <div class="game_rps_human_block">
+          <div class="game_rps-human">
+            <p class="game_rps-human-title">Human</p>
+            <div class="game_rps-human-buttons">
+              <button class="game_rps-h-rock btn-select" type="button" disabled><img src="static/images/rock.png" alt="rock image">Rock</button>
+              <button class="game_rps-h-paper btn-select" type="button" disabled><img src="static/images/paper.png" alt="paper image">Paper</button>
+              <button class="game_rps-h-scissor btn-select" type="button" disabled><img src="static/images/scissors.png" alt="scissors image">Scissors</button>
+            </div>
+            <span class="human-select"></span>
+          </div>
+        </div>
+
+        <div class="game_rps_bot_block">
+          <div class="game_rps-bot">
+            <p class="game_rps-bot-title">Bot</p>
+            <div class="game_rps-bot-buttons">
+              <button class="game_rps-b-rock" type="button" disabled><img src="static/images/rock.png" alt="rock image">Rock</button>
+              <button class="game_rps-b-paper" type="button" disabled><img src="static/images/paper.png" alt="paper image">Paper</button>
+              <button class="game_rps-b-scissor" type="button" disabled><img src="static/images/scissors.png" alt="scissors image">Scissors</button>
+            </div>
+            <span class="bot-select"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-result hide">
+      </div>
+
+    </div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="RockPaperScissor/static/js/lib/jquery.min.js"><\/script>')</script>
+  <script src="static/js/rps.min.js"></script>
+</body>
+</html>

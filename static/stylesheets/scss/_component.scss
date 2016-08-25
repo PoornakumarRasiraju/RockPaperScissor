@@ -1,6 +1,5 @@
 body {
-  background-color: white;
-  width: 100%;
+  background-color: $color-white;
 }
 
 .game {
@@ -8,10 +7,108 @@ body {
   width: 50%;
 
   .game_title {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .game_rps-sec-label {
+    margin-left: 2%;
+  }
+
+  .game_rps-min-input,
+  .game_rps-sec-input {
+    font-size: 13px;
+    text-align: center;
+    width: 12%;
+  }
+
+  .game_input-warning,
+  .game_time-warning {
+    color: $color-red;
+    text-align: center;
+  }
+
+  .game_scoreboard {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+  }
+
+  .counts {
+    border: 3px solid $color-black;
+    display: inline-block;
+    margin-right: -4px;
+
+    h4 {
+      background-color: $color-black;
+      color: white;
+      border-bottom: 2px solid $color-black;
+      margin: 0px;
+      padding: 6px;
+      font-weight: bold;
+    }
+  }
+
+  .score-box {
+    color: #2CB3C9;
+    margin: 0px;
+    padding: 13px;
+  }
+
+  .warningHide,
+  .timeWarningHide {
+    display: none;
+  }
+
+  .timerWarning {
+    color: $color-orange;
+  }
+
+  .game_rps-start,
+  .game_rps-restart {
+    @extend .primary-button;
+  }
+
+  button[type=button] {
+    @extend .game-button;
+
+    img {
+      padding-right: 3px;
+    }
+  }
+
+  input[type="text"] {
+    border: solid 1px $color-light-grey;
+    box-shadow: 0 0 5px 1px $color-shadow-grey;
+    padding: 10px;
+    transition: box-shadow 0.3s, border 0.3s;
+  }
+
+  button[type=button]:disabled {
+    opacity: 0.7;
+  }
+
+  .game_sb-message {
+    margin-bottom: 0px;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .human-select,
+  .bot-select {
+    display: block;
+    margin-top: 29px;
+    text-align: center;
+  }
+
+  .game-result {
+    margin-top: 20px;
     text-align: center;
   }
 
   .game_rps-buttons {
+    display: inline-block;
+    margin-left: 5%;
     margin-top: 18px;
     text-align: center;
 
@@ -29,12 +126,12 @@ body {
     }
 
     .game_rps-timer-block {
-      background-color: grey;
+      background-color: $color-grey;
       border-radius: 3px;
       color: $color-white;
       height: 40px;
       margin: 0 auto;
-      width: 24%;
+      width: 107px;
     }
 
     .game_rps-timer-min,
@@ -50,56 +147,128 @@ body {
 
     .game_rps-timer-sec {
       margin-left: 10px;
-      margin-right: 20px;
     }
+  }
+
+  .game_scoreboard-title {
+    margin-bottom: 0px;
+    margin-top: 30px;
+    text-align: center;
   }
 
   .game_rps-hvb {
     display: inline-block;
+    margin-top: 30px;
     width: 100%;
+
+    .game_rps_human_block,
+    .game_rps_bot_block {
+      float: left;
+      width: 47%;
+    }
+
+    .game_rps_human_block {
+      margin-right: 13px;
+    }
 
     .game_rps-human,
     .game_rps-bot {
       border: 1px solid $scolor-light-blue;
       border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .game_rps-human {
-      display: inline-block;
-      margin-top: 33px;
       height: 200px;
-      width: 49%;
-    }
-
-    .game_rps-bot {
-      display: inline-block;
-      height: 200px;
-      width: 49%;
+      width: 100%;
     }
 
     .game_rps-human-title,
     .game_rps-bot-title{
       text-align: center;
+      text-transform: uppercase;
     }
 
-    .game_rps-human-buttons {
+    .game_rps-human-buttons,
+    .game_rps-bot-buttons {
       text-align: center;
     }
   }
 }
 
-@media (min-width: $screen-inital) and (max-width: $screen-sm) {
-
+@media (max-width: $screen-md) {
   .game {
-    width: 100%;
-  }
-
-  .game_rps-timer-block {
-    width: 50%;
+    width: 90%;
   }
 }
 
-@media (min-width: $screen-sm) {
+@media (min-width: $screen-inital) and (max-width: $screen-xs) {
 
+  .game {
+    width: 100%;
+
+    .game_rps-hvb {
+      width: 100%;
+
+      .game_rps_human_block,
+      .game_rps_bot_block {
+        margin-left: 13px;
+        width: 93%;
+      }
+    }
+
+    .game_scoreboard {
+      width: 80%;
+    }
+
+    .game_rps_human_block {
+      margin-bottom: 20px;
+    }
+
+    .game-result {
+      margin-bottom: 40px;
+    }
+
+    .game_rps-timer-block {
+      width: 50%;
+    }
+
+    .game_rps-buttons {
+      margin-left: 115px;
+    }
+  }
+}
+
+@media (min-width: $screen-xs) and (max-width: $screen-sm) {
+
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+  .game {
+    width: 100%;
+
+    .game_rps_human_block {
+      margin-left: 12px;
+      margin-right: 8px;
+    }
+
+    .game_rps-input {
+      margin-left: 26%;
+      margin-right: 13%;
+    }
+  }
+}
+
+@media (min-width: $screen-md) and (max-width: $screen-lg) {
+  .game {
+    .game_rps-input {
+      margin-left: 16%;
+      margin-right: 0%;
+    }
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .game {
+    .game_rps-input {
+      margin-left: 17%;
+      margin-right: 0%;
+    }
+  }
 }
