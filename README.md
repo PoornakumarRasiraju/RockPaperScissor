@@ -19,3 +19,5 @@
 <h5><a id="gulp" class="anchor" href="#gulp" aria-hidden="true"></a>Gulp</h5>
 
 <p><code>npm install -g gulp</code></p>
+
+<p><strong>Note:</strong> Please refer dist folder to test the application and static folder for development.</p>
