@@ -31,6 +31,18 @@ gulp.task('watch', function() {
     gulp.watch('static/stylesheets/scss/*.scss', ['sass']);
 });
 
+//Copy files to dist
+gulp.task('copy', function() {
+    return gulp.src(['static/*.html', 'static/js/*.min.js', 'static/js/lib/*.min.js', 'static/stylesheets/*.css'])
+                .pipe(gulp.dest('dist'));
+});
+
+//Copy images to dist
+gulp.task('copy-images', function() {
+    return gulp.src('static/images/*')
+        .pipe(gulp.dest('dist/images'));
+});
+
 // Default Task
 gulp.task('dev', ['sass', 'scripts', 'watch']);
-gulp.task('prod', ['sass', 'scripts']);
+gulp.task('prod', ['sass', 'scripts', 'copy', 'copy-images']);

@@ -46,7 +46,7 @@ var rpsModule = (function ($, module) {
             time = min+sec;
 
         if(time > 0) {
-            if(min.length < 3 && sec.length < 3) {
+            if(min.length < 4 && sec.length < 4) {
                 $inputTimeWarning.addClass('warningHide');
                 $inputWarning.addClass('warningHide');
                 $humanSelect.text(' ');
