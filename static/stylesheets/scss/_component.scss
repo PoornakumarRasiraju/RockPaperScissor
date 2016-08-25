@@ -69,14 +69,6 @@ body {
     @extend .primary-button;
   }
 
-  button[type=button] {
-    @extend .game-button;
-
-    img {
-      padding-right: 3px;
-    }
-  }
-
   input[type="text"] {
     border: solid 1px $color-light-grey;
     box-shadow: 0 0 5px 1px $color-shadow-grey;
@@ -84,7 +76,7 @@ body {
     transition: box-shadow 0.3s, border 0.3s;
   }
 
-  button[type=button]:disabled {
+  button:disabled {
     opacity: 0.7;
   }
 
@@ -165,6 +157,14 @@ body {
     .game_rps_bot_block {
       float: left;
       width: 47%;
+
+      button {
+        @extend .game-button;
+
+        img {
+          padding-right: 3px;
+        }
+      }
     }
 
     .game_rps_human_block {
