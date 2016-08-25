@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="RockPaperScissor/static/stylesheets/game.css" />
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="RockPaperScissor/static/js/lib/jquery.min.js"><\/script>')</script>
 </head>
 
 <body>
@@ -18,10 +19,10 @@
     <div class="game_rps">
 
       <div class="game_rps-input">
-        <label class="game_rps-min-label">Minutes:</label>
-        <input class="game_rps-min-input" type="text">
-        <label class="game_rps-sec-label">Seconds:</label>
-        <input class="game_rps-sec-input" type="text">
+        <label class="game_rps-min-label" for="minutes">Minutes:</label>
+        <input id="minutes" class="game_rps-min-input" type="text" name="minutesField">
+        <label class="game_rps-sec-label" for="seconds">Seconds:</label>
+        <input id="seconds" class="game_rps-sec-input" type="text" name="secondsField">
         <div class="game_rps-buttons">
           <button class="game_rps-start" type="submit">START</button>
           <button class="game_rps-restart" type="submit">RESTART</button>
