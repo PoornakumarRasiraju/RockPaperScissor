@@ -93,11 +93,6 @@ body {
     text-align: center;
   }
 
-  .game-result {
-    margin-top: 20px;
-    text-align: center;
-  }
-
   .game_rps-buttons {
     display: inline-block;
     margin-left: 5%;
@@ -188,6 +183,21 @@ body {
     .game_rps-human-buttons,
     .game_rps-bot-buttons {
       text-align: center;
+    }
+  }
+
+  .game_message {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+
+    .game-result {
+      display: inline-block;
+    }
+
+    .trophy_image {
+      display: none;
+      vertical-align: top;
     }
   }
 }
