@@ -1,13 +1,23 @@
 .primary-button {
   background-color: $color-blue;
+  border-color: $color-border-blue;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
   color: $color-white;
-  padding: 7px 12px;
+  cursor: pointer;
+  padding: 9px 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 11px;
+}
+
+.primary-button:hover {
+  background-color: $color-hover-blue;
+}
+
+.btn-select:hover {
+  opacity: 0.8;
 }
 
 .game-button {
@@ -15,6 +25,7 @@
   border: none;
   border-radius: 10px;
   color: $color-white;
+  cursor: pointer;
   margin-bottom: 10px;
   padding: 10px 13px;
   text-align: center;

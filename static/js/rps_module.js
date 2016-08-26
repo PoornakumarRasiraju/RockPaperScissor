@@ -62,6 +62,9 @@ var rpsModule = (function ($, module) {
             $looseCount.text('0');
             $drawCount.text('0');
             module.start(timerChange);
+        } else if(time === 0) {
+            $inputTimeWarning.addClass('warningHide');
+            $inputWarning.removeClass('warningHide');
         } else {
             $inputTimeWarning.removeClass('warningHide');
             $inputWarning.addClass('warningHide');
