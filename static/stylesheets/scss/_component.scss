@@ -50,9 +50,11 @@ body {
   }
 
   .score-box {
-    color: #2CB3C9;
+    color: $color-sb-blue;
+    font-weight: bold;
     margin: 0px;
     padding: 13px;
+    width: 40px;
   }
 
   .warningHide,
@@ -71,13 +73,14 @@ body {
 
   input[type="text"] {
     border: solid 1px $color-light-grey;
-    box-shadow: 0 0 5px 1px $color-shadow-grey;
-    margin-left: 4px;
-    padding: 4px;
+    border-radius: 4px;
+    margin-left: 1%;
+    padding: 6px;
     transition: box-shadow 0.3s, border 0.3s;
   }
 
   button:disabled {
+    cursor: not-allowed !important;
     opacity: 0.7;
   }
 
@@ -109,12 +112,13 @@ body {
     margin-top: 25px;
 
     .game_rps-timer-label {
+      margin-bottom: 3px;
       display: block;
       text-align: center;
     }
 
     .game_rps-timer-block {
-      background-color: $color-grey;
+      background-color: $color-black;
       border-radius: 3px;
       color: $color-white;
       height: 40px;
@@ -139,7 +143,7 @@ body {
   }
 
   .game_scoreboard-title {
-    margin-bottom: 0px;
+    margin-bottom: 3px;
     margin-top: 30px;
     text-align: center;
   }
@@ -241,7 +245,7 @@ body {
     }
 
     .game_rps-buttons {
-      margin-left: 115px;
+      margin-left: 3%;
     }
   }
 }
