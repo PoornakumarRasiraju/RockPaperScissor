@@ -21,3 +21,4 @@
 <p><code>npm install -g gulp</code></p>
 
 <p><strong>Note:</strong> Please refer dist folder to test the application and static folder for development.</p>
+<strong>To access the web application, user has to click on index.html under dist folder.</strong>
