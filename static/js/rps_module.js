@@ -12,12 +12,13 @@ var rpsModule = (function ($, module) {
         drawCount: '.sb-draw',
         scoreboard: '.game_sb-message',
         trophyImg: '.trophy_image',
+        sadImg: '.sad_image',
         inputWarning: '.game_input-warning',
         inputTimeWarning: '.game_time-warning',
         warningMessage: 'Warning: Still 10 seconds left',
-        winMessage: '<strong>Congrats you won</strong>',
-        looseMessage: '<strong>Oops</strong> you loss, try again!',
-        drawMessage: '<strong>Match is drawn</strong>',
+        winMessage: '<strong>Congrats you WON!</strong>',
+        looseMessage: '<strong>Oops you Loss, try again!</strong>',
+        drawMessage: '<strong>Match is draw</strong>',
         notPlayedMessage: 'Haven\'t played the game'
     };
 
@@ -36,6 +37,7 @@ var rpsModule = (function ($, module) {
         $scoreBoard = $(defaults.scoreboard, $game),
         $humanSelect = $(defaults.humanSelected, $game),
         $botSelect = $(defaults.botSelected, $game),
+        $sadImg = $(defaults.sadImg, $game),
         $trophyImg = $(defaults.trophyImg, $game),
         $result =  $(defaults.result, $game);
 
@@ -52,6 +54,7 @@ var rpsModule = (function ($, module) {
             $inputTimeWarning.addClass('warningHide');
             $inputWarning.addClass('warningHide');
             $trophyImg.hide();
+            $sadImg.hide();
             $humanSelect.text('');
             $botSelect.text('');
             $scoreBoard.text(' ');
@@ -68,7 +71,6 @@ var rpsModule = (function ($, module) {
         } else {
             $inputTimeWarning.removeClass('warningHide');
             $inputWarning.addClass('warningHide');
-            return false;
         }
     });
 
@@ -124,6 +126,7 @@ var rpsModule = (function ($, module) {
             $result.html(defaults.winMessage).removeClass('hide');
         }
         else if (looseCount > winCount) {
+            $sadImg.show();
             $result.html(defaults.looseMessage).removeClass('hide');
         }
         else if (winCount === looseCount && count > 0) {
